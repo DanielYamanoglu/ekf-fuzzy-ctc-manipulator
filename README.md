@@ -3,6 +3,7 @@
 **Graduation thesis, Control and Automation Engineering, Yıldız Technical University (2026).**
 A 2-DOF robot arm tracks a joint-space reference using only noisy angle measurements: an Extended Kalman Filter estimates the full state, and a fuzzy gain scheduler adapts the computed-torque controller's gains online.
 
+[![CI](https://github.com/DanielYamanoglu/ekf-fuzzy-ctc-manipulator/actions/workflows/ci.yml/badge.svg)](https://github.com/DanielYamanoglu/ekf-fuzzy-ctc-manipulator/actions/workflows/ci.yml)
 ![MATLAB](https://img.shields.io/badge/MATLAB-original-orange)
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![NumPy](https://img.shields.io/badge/NumPy-port-013243)
