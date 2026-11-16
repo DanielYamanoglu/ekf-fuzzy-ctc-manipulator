@@ -31,7 +31,8 @@ def main() -> None:
     runs = {"fixed-gain CTC": simulate("fixed", T=9.0, disturbance=1.0),
             "fuzzy CTC": simulate("fuzzy", T=9.0, disturbance=1.0)}
     ref = joints(Q_REF, p)
-    fig, axes = plt.subplots(1, 2, figsize=(8, 4))
+    # Sized to the plotted region (0.44 m wide, 0.27 m tall per panel) so the GIF has no dead space.
+    fig, axes = plt.subplots(1, 2, figsize=(8, 2.9), constrained_layout=True)
     lines, titles = [], []
     for ax, name in zip(axes, runs):
         ax.plot(ref[:, 0], ref[:, 1], "o--", color="0.7", label="reference")

@@ -1,6 +1,6 @@
 # EKF + Fuzzy Computed-Torque Control for a 2-DOF Manipulator
 
-**Graduation thesis, Control and Automation Engineering, Yıldız Technical University (2026).**
+**Graduation project, Control and Automation Engineering, Yıldız Technical University (2026).** A two-author project; this repository holds the simulation code and my Python port.
 A 2-DOF robot arm tracks a joint-space reference using only noisy angle measurements: an Extended Kalman Filter estimates the full state, and a fuzzy gain scheduler adapts the computed-torque controller's gains online.
 
 [![CI](https://github.com/DanielYamanoglu/ekf-fuzzy-ctc-manipulator/actions/workflows/ci.yml/badge.svg)](https://github.com/DanielYamanoglu/ekf-fuzzy-ctc-manipulator/actions/workflows/ci.yml)
@@ -29,7 +29,7 @@ A 2-DOF robot arm tracks a joint-space reference using only noisy angle measurem
 
 ### Thesis results (MATLAB)
 
-These come from the thesis simulation scripts in [`matlab/`](matlab/), copied from their console output.
+These are the results reported in the thesis, produced by the simulation scripts in [`matlab/`](matlab/).
 
 | Test | Metric | Fixed-gain CTC | Fuzzy CTC | Change |
 |---|---|---|---|---|
@@ -38,11 +38,10 @@ These come from the thesis simulation scripts in [`matlab/`](matlab/), copied fr
 | T1 step | Overshoot (joint 1) | 2.82 % | 4.57 % | worse |
 | T2 trajectory | RMS error | 0.0414 rad | 0.0425 rad | 2.6 % higher |
 | T3 disturbance | Max deviation | 1.124 rad | 0.984 rad | 12.5 % lower |
-| T3 disturbance | Recovery time | 1.67 s | 2.46 s | slower |
 
-EKF tuning (Q/R sensitivity sweep and NIS-based adaptation) moved the mean NIS from 1.35 to 2.0, the theoretical value for two measurements. Samples inside the 95 % bound went from 90.3 % to 95.5 %, and angle estimation error dropped from 0.135 to 0.089 rad.
+EKF consistency in the thesis: with fixed-gain CTC the mean NIS was 1.35 with 89.3 % of samples inside the 95 % bound; in the integrated fuzzy + EKF run it was 1.27 with 91.3 %, and the EKF position RMSE was 0.0129 rad. The theoretical NIS for two measurements is 2.0, so the filter is somewhat conservative; the thesis notes that Q and R still need fine-tuning.
 
-**Takeaway:** fuzzy scheduling helps most on large disturbances (smaller peak deviation) and on step tracking error. It costs some overshoot and recovery speed, a trade-off governed by the Kd rules.
+**Takeaway:** fuzzy scheduling helps most on large disturbances (smaller peak deviation) and on step tracking error. It costs some step overshoot, a trade-off governed by the Kd rules.
 
 <p align="center"><img src="assets/fuzzy_performance_summary.png" width="760" alt="MATLAB performance summary"></p>
 <p align="center">

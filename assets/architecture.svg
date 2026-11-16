@@ -1,31 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" font-family="Helvetica, Arial, sans-serif" font-size="14">
-  <rect width="900" height="260" rx="12" fill="#f7f5f0"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 290" width="1000" height="290" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <title id="t">Control loop: reference, fuzzy gain scheduler, computed-torque controller, arm, sensors, EKF feedback</title>
+  <desc id="d">The reference feeds a fuzzy gain scheduler that sets Kp and Kd for a computed-torque controller. The controller drives the 2-DOF arm with torque. Noisy angle sensors feed an Extended Kalman Filter, whose state estimate is fed back to the scheduler and the controller.</desc>
+  <rect width="1000" height="290" rx="12" fill="#f7f5f0"/>
   <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3a3a3a"/></marker></defs>
   <g stroke="#3a3a3a" stroke-width="1.6" fill="none" marker-end="url(#a)">
-    <path d="M110,90 H160"/><path d="M280,90 H330"/><path d="M470,90 H520"/><path d="M640,90 H690"/>
-    <path d="M750,120 V200 H230 V122"/><path d="M400,200 V122"/>
+    <path d="M110,95 H168"/>
+    <path d="M300,95 H398"/>
+    <path d="M550,95 H628"/>
+    <path d="M760,95 H838"/>
+    <path d="M905,125 V225 H602"/>
+    <path d="M398,225 H235 V127"/>
+    <path d="M475,205 V127"/>
   </g>
   <g fill="#ffffff" stroke="#4a6b8a" stroke-width="1.8">
-    <rect x="20" y="65" width="90" height="50" rx="8"/>
-    <rect x="160" y="60" width="120" height="60" rx="8"/>
-    <rect x="330" y="60" width="140" height="60" rx="8" stroke="#8b5c4a"/>
-    <rect x="520" y="60" width="120" height="60" rx="8"/>
-    <rect x="690" y="60" width="120" height="60" rx="8"/>
+    <rect x="20" y="70" width="90" height="50" rx="8"/>
+    <rect x="170" y="65" width="130" height="60" rx="8"/>
+    <rect x="400" y="65" width="150" height="60" rx="8" stroke="#8b5c4a"/>
+    <rect x="630" y="65" width="130" height="60" rx="8"/>
+    <rect x="840" y="65" width="130" height="60" rx="8"/>
+    <rect x="400" y="207" width="200" height="38" rx="8" stroke="#4a7a5c"/>
   </g>
   <g fill="#2d2a26" text-anchor="middle">
-    <text x="65" y="95">q_ref</text>
-    <text x="220" y="86">Fuzzy gain</text><text x="220" y="104">scheduler</text>
-    <text x="400" y="86">Computed-torque</text><text x="400" y="104">controller</text>
-    <text x="580" y="86">2-DOF arm</text><text x="580" y="104">M q̈ + C q̇ + G = τ</text>
-    <text x="750" y="86">Noisy angle</text><text x="750" y="104">sensors</text>
+    <text x="65" y="100">q_ref</text>
+    <text x="235" y="91">Fuzzy gain</text><text x="235" y="109">scheduler</text>
+    <text x="475" y="91">Computed-torque</text><text x="475" y="109">controller</text>
+    <text x="695" y="91">2-DOF arm</text><text x="695" y="109" font-size="12">M q̈ + C q̇ + G = τ</text>
+    <text x="905" y="91">Noisy angle</text><text x="905" y="109">sensors</text>
+    <text x="500" y="231">Extended Kalman Filter</text>
   </g>
-  <rect x="300" y="182" width="200" height="36" rx="8" fill="#ffffff" stroke="#4a7a5c" stroke-width="1.8"/>
-  <text x="400" y="205" text-anchor="middle" fill="#2d2a26">Extended Kalman Filter</text>
   <g fill="#6b6259" font-size="12" text-anchor="middle">
-    <text x="305" y="80">Kp(e,ė), Kd(e,ė)</text>
-    <text x="495" y="80">τ</text>
-    <text x="665" y="80">q</text>
-    <text x="580" y="195">y = q + v</text>
-    <text x="300" y="155">x̂ = [q̂, q̂̇]</text>
+    <text x="349" y="85">Kp, Kd</text>
+    <text x="589" y="85">τ</text>
+    <text x="799" y="85">q</text>
+    <text x="760" y="217">y = q + v</text>
+    <text x="318" y="217">x̂ = [q̂, q̂̇]</text>
   </g>
 </svg>
